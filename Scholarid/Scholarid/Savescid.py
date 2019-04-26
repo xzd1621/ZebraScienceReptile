@@ -17,7 +17,7 @@ class Savescid():
         根据学者主页的url提取他的Scholarid
     '''
     def scurl2id(self,url):
-        pattern = re.compile('scholarID\/(.*?)(\?.*?|\s)')
+        pattern = re.compile('scholarID\/(.*?)(\?.*?|\s|\Z)')
         results = pattern.findall(url)
         for result in results:
             if len(result) > 0:
