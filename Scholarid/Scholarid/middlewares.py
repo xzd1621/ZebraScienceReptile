@@ -101,3 +101,26 @@ class ScholaridDownloaderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+
+from fake_useragent import UserAgent
+
+# 新增一个类
+class RandomUserAgentMidddlware(object):
+    # 随机更换user-agent
+    def __init__(self, crawler):
+        super(RandomUserAgentMidddlware, self).__init__()
+        self.ua = UserAgent(use_cache_server=False)
+        # 从配置文件读取随机类型
+        self.ua_type = crawler.settings.get('RANDOM_UA_TYPE', 'random')
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        return cls(crawler)
+
+    def process_request(self, request, spider):
+        # 通过配置文件的随机类型进行调用
+        def get_ua():
+            return getattr(self.ua, self.ua_type)
+
+        request.headers.setdefault('User-Agent', get_ua())

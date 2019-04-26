@@ -23,6 +23,16 @@ class ScholaridPipeline(object):
     def process_item(self, item, spider):
         item=dict(item)
         sc=Savescid('localhost',27017,'Scholar','scmessage')
-        sc.collection.insert(item)
+
+        '''
+        首次运行就直接插入数据库即可
+        因为在爬取开始时就已经判断该专家的ID是否已经被爬取过
+        若是爬取后中断，再次运行插入数据库前就需要先判断数据库中是否已有
+    
+        '''
+        if sc.collection.find_one({'scid':item['scid']})==None:
+            sc.collection.insert(item)
+
+        # sc.collection.insert(item)
         # self.post.insert(item)
         return item

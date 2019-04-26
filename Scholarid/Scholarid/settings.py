@@ -16,10 +16,21 @@ NEWSPIDER_MODULE = 'Scholarid.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.108 Safari/537.36'
+# USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.108 Safari/537.36'
+USER_AGENT='Mozilla/5.0 (Windows; U; Windows NT 5.2) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.2.149.27 Safari/525.13'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
+
+DOWNLOADER_MIDDLEWARES = {
+   # 将自己编写的类导入
+   'Scholarid.middlewares.RandomUserAgentMidddlware': 543,
+    # 导入系统自带的useragent类，并将优先级设置为none
+    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+}
+
+# 设置自定义的random的属性
+RANDOM_UA_TYPE = "random"
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -67,6 +78,8 @@ DEFAULT_REQUEST_HEADERS = {
 ITEM_PIPELINES = {
    'Scholarid.pipelines.ScholaridPipeline': 300,
 }
+
+LOG_LEVEL = 'INFO'
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
