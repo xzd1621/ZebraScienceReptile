@@ -4,7 +4,9 @@
 #
 # See documentation in:
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
+import os
 
+import fake_useragent
 from scrapy import signals
 
 
@@ -110,7 +112,9 @@ class RandomUserAgentMidddlware(object):
     # 随机更换user-agent
     def __init__(self, crawler):
         super(RandomUserAgentMidddlware, self).__init__()
-        self.ua = UserAgent(use_cache_server=False)
+        location = os.getcwd() + '\\fake_useragent.json'
+        print(location)
+        self.ua = UserAgent(path=location)
         # 从配置文件读取随机类型
         self.ua_type = crawler.settings.get('RANDOM_UA_TYPE', 'random')
 

@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+import os
+import ssl
+
 import requests
 import scrapy
 from gevent import time
@@ -33,9 +36,11 @@ class ScholarSpider(scrapy.Spider):
     网页中的网址转换为实际的网址
     '''
     def source2real(self,url):
-        ua=UserAgent(use_cache_server=False)
+        location = os.getcwd() + '\\fake_useragent.json'
+        ua=UserAgent(path=location)
         headers={'User-Agent':ua.random}
-        request=requests.get(url,headers=headers,timeout=2)
+        ssl._create_default_https_context = ssl._create_unverified_context
+        request=requests.get(url,headers=headers,timeout=2,verify=False)
         return  request.url
 
     def parse(self, response):
