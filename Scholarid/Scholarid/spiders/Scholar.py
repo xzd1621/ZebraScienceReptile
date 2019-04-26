@@ -4,7 +4,7 @@ import scrapy
 from gevent import time
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
-
+from fake_useragent import UserAgent
 from Scholarid.Savescid import Savescid
 from Scholarid.items import ScholaridItem
 
@@ -15,24 +15,27 @@ class ScholarSpider(scrapy.Spider):
     # start_urls = ['http://http://xueshu.baidu.com/scholarID/CN-B374BHLJ/']
 
     def start_requests(self):
-        self.sc = Savescid('localhost', 27017, 'Scholar', 'scid')
         self.idlist=list() #辨别此ID是否爬取过
-        for id in self.sc.getscid():
-            if id not in self.idlist:
-                self.idlist.append(id)
-                yield scrapy.Request(url=self.sc.scid2url(id),meta={'scid':id,'scurl':self.sc.scid2url(id)})
+        # self.sc = Savescid('localhost', 27017, 'Scholar', 'scid')
+        # for id in self.sc.getscid():
+        #     if id not in self.idlist:
+        #         self.idlist.append(id)
+        #         yield scrapy.Request(url=self.sc.scid2url(id),meta={'scid':id,'scurl':self.sc.scid2url(id)})
         self.sc=Savescid('localhost',27017,'Scholar','scmessage')
         for id in self.sc.getsccopid():
-            if id not in self.idlist:
-                self.idlist.append(id)
+            if self.sc.collection.find_one({'scid':id}) ==None:
+            # if id not in self.idlist:
+            #     self.idlist.append(id)
+                print(id)
                 yield scrapy.Request(url=self.sc.scid2url(id), meta={'scid': id, 'scurl': self.sc.scid2url(id)})
 
     '''
     网页中的网址转换为实际的网址
     '''
     def source2real(self,url):
-        headers={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.108 Safari/537.36'}
-        request=requests.get(url,headers=headers)
+        ua=UserAgent(use_cache_server=False)
+        headers={'User-Agent':ua.random}
+        request=requests.get(url,headers=headers,timeout=2)
         return  request.url
 
     def parse(self, response):
@@ -95,5 +98,4 @@ class ScholarSpider(scrapy.Spider):
                 item['copinfo'].append(person)
         finally:
             browser.close()
-
         yield item
