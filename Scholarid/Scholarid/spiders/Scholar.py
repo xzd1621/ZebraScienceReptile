@@ -19,18 +19,18 @@ class ScholarSpider(scrapy.Spider):
 
     def start_requests(self):
         self.idlist=list() #辨别此ID是否爬取过
-        # self.sc = Savescid('localhost', 27017, 'Scholar', 'scid')
-        # for id in self.sc.getscid():
-        #     if id not in self.idlist:
-        #         self.idlist.append(id)
-        #         yield scrapy.Request(url=self.sc.scid2url(id),meta={'scid':id,'scurl':self.sc.scid2url(id)})
-        self.sc=Savescid('localhost',27017,'Scholar','scmessage')
-        for id in self.sc.getsccopid():
-            if self.sc.collection.find_one({'scid':id}) ==None:
-            # if id not in self.idlist:
-            #     self.idlist.append(id)
-                print(id)
-                yield scrapy.Request(url=self.sc.scid2url(id), meta={'scid': id, 'scurl': self.sc.scid2url(id)})
+        self.scid = Savescid('localhost', 27017, 'Scholar', 'scid')
+        self.scmessage=Savescid('localhost',27017,'Scholar','scmessage')
+        #从之前得到的scid集合中取id
+        for id in self.scid.getscid():
+            if id!=None and  self.scmessage.collection.find_one({'scid':id}) ==None:
+                print(id + ' from scid ')
+                yield scrapy.Request(url=self.scid.scid2url(id),meta={'scid':id,'scurl':self.scid.scid2url(id)})
+        #从学者信息集合中取与他合作的学者的id
+        for id in self.scmessage.getsccopid():
+            if id!=None and self.scmessage.collection.find_one({'scid':id}) ==None:
+                print(id+' from scmessage')
+                yield scrapy.Request(url=self.scmessage.scid2url(id), meta={'scid': id, 'scurl': self.scmessage.scid2url(id)})
 
     '''
     网页中的网址转换为实际的网址
