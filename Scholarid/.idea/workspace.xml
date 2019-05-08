@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a5220513-380c-409b-8f71-62b2205c5900" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Scholarid/Savescid.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scholarid/fake_useragent.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scholarid/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scholarid/scholarid_url.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scholarid/spiders/fake_useragent.json" afterDir="false" />
-    </list>
+    <list default="true" id="a5220513-380c-409b-8f71-62b2205c5900" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +68,15 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1549863065">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="Scholarid" />
@@ -83,8 +86,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Scholarid/spiders/Scholar.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="31" column="41" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
+            <state relative-caret-position="704">
+              <caret line="32" column="126" selection-start-line="32" selection-start-column="126" selection-end-line="32" selection-end-column="126" />
               <folding>
                 <element signature="e#24#33#0" expanded="true" />
                 <marker date="1556433298538" expanded="true" signature="522:527" ph="..." />
@@ -96,7 +99,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scholarid/items.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
+            <state relative-caret-position="523">
               <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
               <folding>
                 <marker date="1556170327943" expanded="true" signature="202:207" ph="..." />
@@ -109,7 +112,7 @@
         <entry file="file://$PROJECT_DIR$/Scholarid/Savescid.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="3" lean-forward="true" selection-start-column="3" selection-end-column="3" />
+              <caret column="3" selection-start-column="3" selection-end-column="3" />
               <folding>
                 <element signature="e#39#48#0" expanded="true" />
                 <marker date="1556203851414" expanded="true" signature="83:1765" ph="..." />
@@ -175,7 +178,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="950" />
-    <option name="width" value="979" />
+    <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -213,7 +216,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -308,7 +311,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989429" visible="true" weight="0.16756032" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4989429" visible="true" weight="0.16957104" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5010571" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -442,7 +445,7 @@
     <entry file="file://$PROJECT_DIR$/Scholarid/Savescid.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="3" lean-forward="true" selection-start-column="3" selection-end-column="3" />
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
           <folding>
             <element signature="e#39#48#0" expanded="true" />
             <marker date="1556203851414" expanded="true" signature="83:1765" ph="..." />
@@ -454,7 +457,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Scholarid/items.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
+        <state relative-caret-position="523">
           <caret line="27" column="30" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
           <folding>
             <marker date="1556170327943" expanded="true" signature="202:207" ph="..." />
@@ -464,8 +467,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Scholarid/spiders/Scholar.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="31" column="41" selection-start-line="31" selection-start-column="41" selection-end-line="31" selection-end-column="41" />
+        <state relative-caret-position="704">
+          <caret line="32" column="126" selection-start-line="32" selection-start-column="126" selection-end-line="32" selection-end-column="126" />
           <folding>
             <element signature="e#24#33#0" expanded="true" />
             <marker date="1556433298538" expanded="true" signature="522:527" ph="..." />

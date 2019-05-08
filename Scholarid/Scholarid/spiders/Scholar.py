@@ -8,8 +8,8 @@ from gevent import time
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from fake_useragent import UserAgent
-from Scholarid.Savescid import Savescid
-from Scholarid.items import ScholaridItem
+from Scholarid.Scholarid.Savescid import Savescid
+from Scholarid.Scholarid.items import ScholaridItem
 
 
 class ScholarSpider(scrapy.Spider):
